@@ -9,8 +9,9 @@ class server:
             self.sock = sock
 
         def run(self):
-            data = self.sock.recv(1024)
-            self.sock.sendall(data)
+            while True:
+                data = self.sock.recv(1024)
+                self.sock.sendall(data)
 
     def __init__(self):
         self.sock = socket()
