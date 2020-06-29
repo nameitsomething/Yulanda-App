@@ -26,6 +26,6 @@ class server:
         client = self.worker(conn)
         client.start()
 
-serv = server
+serv = server()
 serv.connect()
 serv.acceptNew()
