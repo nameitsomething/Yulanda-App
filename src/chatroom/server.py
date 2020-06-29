@@ -5,6 +5,7 @@ class server:
 
     class worker(Thread):
         def __init__(self, sock: socket):
+            Thread.__init__(self)
             self.sock = sock
 
         def run(self):
