@@ -9,6 +9,7 @@ class server:
             self.sock = sock
 
         def run(self):
+            print("here")
             while True:
                 data = self.sock.recv(1024)
                 self.sock.sendall(data)
@@ -28,4 +29,5 @@ class server:
 
 serv = server()
 serv.connect()
-serv.acceptNew()
+while True:
+    serv.acceptNew()

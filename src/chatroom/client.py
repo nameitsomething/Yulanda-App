@@ -21,7 +21,7 @@ class client:
 
     def runtime(self):
         self.counter += 1
-        self.sock.sendall(str.encode("hello {self.counter}"))
+        self.sock.sendall(str.encode(f"hello {self.counter}"))
         data = self.sock.recv(1024)
         print(data.decode())
 
