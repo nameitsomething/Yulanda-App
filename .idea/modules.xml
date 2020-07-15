@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../SimpleChatroom/.idea/SimpleChatroom.iml" filepath="$PROJECT_DIR$/../SimpleChatroom/.idea/SimpleChatroom.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Yulanda-App.iml" filepath="$PROJECT_DIR$/.idea/Yulanda-App.iml" />
     </modules>
   </component>
