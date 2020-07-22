@@ -1,5 +1,6 @@
 from Utils.School import School
 from Utils.Student import Student
+from Utils.Course import Course
 from socket import socket
 from threading import *
 import struct
@@ -23,6 +24,9 @@ class Jetson(Thread):
             self.wait_for_response()
 
     def wait_for_response(self):
+        # In here put code for Jetson requests/Signals
+        # Jetson can send information to the school in here
+
         pass
 
 
@@ -37,6 +41,9 @@ class User(Thread):
             self.wait_for_request()
 
     def wait_for_request(self):
+        # In here put code for user requests
+        # User can request information from the School class through numerical commands
+
         pass
 
 

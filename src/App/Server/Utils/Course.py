@@ -130,7 +130,7 @@ class Course:
         for s in self.students:
             students += f"{s.student_number},"
 
-        out = f"{self.name},{self.number},{self.section},{self.description},"
+        out = f"{self.name},{self.number},{self.section},{self.description},{self.times.__len__()},{self.students.__len__()}"
         out += str_time
         out += students
 

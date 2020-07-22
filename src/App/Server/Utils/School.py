@@ -1,6 +1,7 @@
 from .Student import Student
 from .Course import Course
 import csv
+from datetime import datetime
 
 
 class School:
@@ -172,7 +173,43 @@ class School:
         return False
 
     def write(self):
-        pass
+        with open('students.csv', "w") as file:
+            for s in self.students:
+                file.write(s.format_csv())
+
+        with open('classes.csv', "w") as file:
+            for c in self.courses:
+                file.write(c.format_csv())
+
 
     def read(self):
-        pass
+        with open('students.csv', "r", newline='') as file:
+            reader = csv.reader(file, delimiter=',')
+
+            for row in reader:
+                self.student.append(Student(str(row[0]), int(row[1]), int(row[2]), bool(row[3])).set_student_number(int(row[4])))
+
+        with open('classes.csv', "r", newline='') as file:
+            reader = csv.reader(file, delimiter=',')
+
+            for row in reader:
+                times = []
+                students = []
+                for i in range(0, int(row[4])):
+                    times.append(datetime.datetime.strptime(row[6+i], '%Y-%m-%d %H:%M:%S.%f'))
+
+                for i in range(0, int(row[5])):
+                    students.append(int(row[ int(row[4] + i + 6)]))
+
+
+                temp = Course(str(row[0]), int(row[1]), int(row[2]), str(row[3]))
+
+                for t in times:
+                    temp.add_time(t)
+
+                for s in students:
+                    for stu in self.students:
+                        if s == stu.student_number:
+                            temp.add_student(stu)
+                            break
+
