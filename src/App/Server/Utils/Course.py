@@ -153,9 +153,10 @@ class Course:
             str_time = ""
             for t in self.times:
                 str_time += f"{t.timestamp()};"
+            str_time += ","
         out += str_time
 
-        students = "0"
+        students = "0,"
         if self.students.__len__() > 0:
             students = ""
             for s in self.students:
