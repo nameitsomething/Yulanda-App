@@ -136,8 +136,8 @@ if __name__ == "__main__":
         conn.sendall(str.encode("6,1,DrX;M101;1"))  # Remove Student from class
         if conn.recv(128).decode() == "posak":
             conn.sendall(str.encode("8,1,M101;1"))
-            temp = conn.recv(256).decode().split(",")
-            print(temp[7])
+            temp = conn.recv(256).decode()
+            print(temp)
             if temp[5] == "3":
                 print("Student Successfully removed from class - Test Passed")
                 test_counter += 1
