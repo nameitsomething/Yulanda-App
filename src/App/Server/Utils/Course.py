@@ -146,7 +146,7 @@ class Course:
 
     def format_csv(self):
 
-        out = f"{self.name},{self.number},{self.section},{self.description},{len(self.times)},{len(self.students)}"
+        out = f"{self.name},{self.number},{self.section},{self.description},{len(self.times)},{len(self.students)},"
 
         str_time = "0,"
         if self.times.__len__() > 0:
