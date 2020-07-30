@@ -150,6 +150,20 @@ if __name__ == "__main__":
 
     if test_counter >= 7:
         # Write test for Schedule & attendance & Location
+        conn.sendall(str.encode("9,1,Yulanda"))
+        temp = conn.recv(128).decode()
+        print(temp)
+
+
+        conn.sendall(str.encode("10,1,M101;1"))
+        temp = conn.recv(128).decode()
+        print(temp)
+
+        conn.sendall(str.encode("11,1,Gabe"))
+        temp = conn.recv(128).decode()
+        print(temp)
         pass
 
     # --- End Test  admin features ---
+
+    

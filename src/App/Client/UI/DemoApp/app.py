@@ -36,8 +36,7 @@ class Window:
         self.bottom_frame2 = Frame(tk)
         self.bottom_frame3 = Frame(tk)
         
-        
-
+    
         self.name_label = Label(self.info_frame, text="Name:",anchor=NW,justify= LEFT,font=("Helvetica",15))
         self.age_label = Label(self.info_frame,text="Age:",anchor=NW,justify = LEFT,font=("Helvetica",15))
         self.grade_label = Label(self.info_frame,text="Grade:",anchor=NW,justify=LEFT,font=("Helvetica",15))

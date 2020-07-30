@@ -184,8 +184,8 @@ class User(Thread):
                 for c in school.courses:
                     if c.is_student_part_of(number=int(data[0])):
                         response += f"{c.name},{c.number},{c.section}"
-
-            self.conn.sendall(response)
+            
+            self.conn.sendall(str.encode(response))
 
         elif command == 10:
             data = packet[2].split(';')
