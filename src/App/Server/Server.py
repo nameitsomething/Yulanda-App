@@ -169,6 +169,7 @@ class User(Thread):
             elif specifier == 2:
                 temp = school.get_course(course_number=int(data[0]), course_section=int(data[1]))
                 response = temp.format_bytes()
+            self.conn.sendall(response)
 
         elif command == 9:
             data = packet[2].split(';')

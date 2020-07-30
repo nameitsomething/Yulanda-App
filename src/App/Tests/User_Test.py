@@ -1,6 +1,6 @@
 from socket import socket
 
-HOST = ""
+HOST = '3.128.156.248'
 PORT = 12345
 
 conn = socket()
@@ -11,7 +11,7 @@ test_counter = 0
 if __name__ == "__main__":
 
     # --- Login Sequence ---
-    temp = int.from_bytes(conn.recv(64))
+    temp = int.from_bytes(conn.recv(64),"big")
     if temp == 1:
         temp = str.encode("user123,12346")
         conn.sendall(temp)
@@ -21,7 +21,7 @@ if __name__ == "__main__":
             # --- Student Testing ---
             print("Student Add, Find, and Remove Test - Begin")
 
-            conn.sendall(str.encode("1,0,Gabe;23;U;False"))  # Add First Student
+            conn.sendall(str.encode("1,0,Gabe;23;14;False"))  # Add First Student
             if conn.recv(128).decode() == "posak":
                 print("Test 1 Pass")
                 test_counter += 1
@@ -33,7 +33,7 @@ if __name__ == "__main__":
             print(temp)
 
             student1 = temp.split(",")
-            if student1[0] == "Gabe" and student1[1] == "Gabe" and student1[4] == "1":  # Test Student info
+            if student1[0] == "Gabe" and student1[1] == "23" and student1[4] == "1":  # Test Student info
                 print("Test 2 Pass")
                 test_counter += 1
             else:
@@ -58,16 +58,16 @@ if __name__ == "__main__":
             else:
                 print("Test 4 Fail")
 
-            conn.sendall(str.encode("8,1,M101"))
-            temp = conn.recv(128).decode().split(",")
-
+            conn.sendall(str.encode("8,1,M101;1"))
+            temp = conn.recv(128).decode()
+            print(temp)
             if temp[0] == "M101" and temp[1] == "1" and temp[2] == "1":
                 print("Test 5 Pass")
                 test_counter += 1
             else:
                 print("Test 5 Fail")
 
-            conn.sendall(str.encode("4,1,M101"))
+            conn.sendall(str.encode("4,1,M101;1"))
             if conn.recv(128).decode() == "posak":
                 print("Test 6 Pass")
                 test_counter += 1
@@ -81,13 +81,13 @@ if __name__ == "__main__":
 
         print("Bulk Add & Enroll Test - Begin")
 
-        conn.sendall(str.encode("1,0,Gabe;23;U;False"))  # Add First Student
+        conn.sendall(str.encode("1,0,Gabe;23;14;False"))  # Add First Student
         if conn.recv(128).decode() == "posak":  # Wait for posak
             conn.sendall(str.encode("1,0,Yulanda;16;11;False"))  # Add Second Student
             if conn.recv(128).decode() == "posak":
-                conn.sendall(str.encode("1,0,Emma;10;4;False"))  # Add Third Student
+                conn.sendall(str.encode("1,0,Emma;10;6;False"))  # Add Third Student
                 if conn.recv(128).decode() == "posak":
-                    conn.sendall(str.encode("1,0,DrX;45;B0ss;False"))  # Add Fourth Student
+                    conn.sendall(str.encode("1,0,DrX;45;17;False"))  # Add Fourth Student
                     if conn.recv(128).decode() == "posak":
                         print("Test Bulk Add Passed")
                         test_counter +=1
@@ -123,7 +123,7 @@ if __name__ == "__main__":
         else:
             print("Fail - Creating course")
 
-        conn.sendall(str.encode("8,1,M101"))  # Get Class info
+        conn.sendall(str.encode("8,1,M101;1"))  # Get Class info
         temp = conn.recv(256).decode().split(",")
         print(temp[7])  # Analyze this string, ensure that it comes out correctly
         if temp[0] == "M101" and temp[5] == "4":
@@ -134,7 +134,7 @@ if __name__ == "__main__":
 
         conn.sendall(str.encode("6,1,DrX;M101;1"))  # Remove Student from class
         if conn.recv(128).decode() == "posak":
-            conn.sendall(str.encode("8,1,M101"))
+            conn.sendall(str.encode("8,1,M101;1"))
             temp = conn.recv(256).decode().split(",")
             print(temp[7])
             if temp[5] == "3":
