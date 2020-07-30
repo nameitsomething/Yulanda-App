@@ -194,7 +194,9 @@ class User(Thread):
                 response = temp.format_attendance()
             elif specifier == 2:
                 temp = school.get_course(course_number=int(data[0]), course_name=int(data[1]))
-                response = temp.format_attendance()
+                temp = temp.format_attendance()
+                for t in temp:
+                    response += t + ","
             self.conn.sendall(str.encode(response))
 
         elif command == 11:
