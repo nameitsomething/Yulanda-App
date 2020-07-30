@@ -58,6 +58,7 @@ if __name__ == "__main__":
             else:
                 print("Test 4 Fail")
 
+
             conn.sendall(str.encode("8,1,M101;1"))
             temp = conn.recv(128).decode()
             print(temp)
@@ -125,7 +126,7 @@ if __name__ == "__main__":
 
         conn.sendall(str.encode("8,1,M101;1"))  # Get Class info
         temp = conn.recv(256).decode().split(",")
-        print(temp[7])  # Analyze this string, ensure that it comes out correctly
+        
         if temp[0] == "M101" and temp[5] == "4":
             print("Students Successfully added to class - Test Passed")
             test_counter += 1

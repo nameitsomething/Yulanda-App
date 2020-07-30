@@ -56,6 +56,7 @@ class User(Thread):
         command = int(packet[0])
         specifier = int(packet[1])
         response = str.encode("negak")
+
         # Refer to command list for specification on how commands work in detail
         if command == 1:
             data = packet[2].split(';')
@@ -115,14 +116,14 @@ class User(Thread):
                     response = str.encode("negak")
             elif specifier == 3:
                 if school.add_student_to_course(student_number=int(data[0]), course_name=str(data[1]), course_section=int(data[2])):
-                    response = str.encoder("posak")
+                    response = str.encode("posak")
                 else:
                     response = str.encode("negak")
             elif specifier == 4:
                 if school.add_student_to_course(student_number=int(data[0]), course_number=str(data[1]), course_section=int(data[2])):
                     response = str.encode("posak")
                 else:
-                    response = str.encoder("negak")
+                    response = str.encode("negak")
 
             self.conn.sendall(response)
 
@@ -130,24 +131,24 @@ class User(Thread):
             data = packet[2].split(';')
             if specifier == 1:
                 if school.remove_student_to_course(student_name=str(data[0]), course_name=str(data[1]), course_section=int(data[2])):
-                    response = "posak"
+                    response = str.encode("posak")
                 else:
-                    response = "noak"
+                    response = str.encode("negak")
             elif specifier == 2:
                 if school.remove_student_to_course(student_name=str(data[0]), course_number=int(data[1]), course_section=int(data[2])):
-                    response = "posak"
+                    response = str.encode("posak")
                 else:
-                    response = "noak"
+                    response = str.encode("negak")
             elif specifier == 3:
                 if school.remove_student_to_course(student_number=int(data[0]), course_name=str(data[1]), course_section=int(data[2])):
-                    response = "posak"
+                    response = str.encode("posak")
                 else:
-                    response = "noak"
+                    response = str.encode("negak")
             elif specifier == 4:
                 if school.remove_student_to_course(student_number=int(data[0]), course_number=str(data[1]), course_section=int(data[2])):
-                    response = "posak"
+                    response = str.encode("posak")
                 else:
-                    response = "noak"
+                    response = str.encode("negak")
 
             self.conn.sendall(response)
 
