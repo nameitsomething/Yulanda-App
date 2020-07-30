@@ -5,7 +5,7 @@ from threading import *
 from PIL import ImageTk,Image
 
 
-HOST = ""
+HOST = '3.128.156.248'
 PORT = 12345
 
 running = True
@@ -116,7 +116,7 @@ class Window:
 if __name__ == "__main__":
     conn.connect((HOST, PORT))
     root = Tk()
-    temp = int.from_bytes(conn.recv(64))
+    temp = int.from_bytes(conn.recv(64),"big")
     if temp == 1:
         temp = str.encode(f"user123,12346")
         conn.sendall(temp)
