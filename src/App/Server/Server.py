@@ -195,7 +195,7 @@ class User(Thread):
             elif specifier == 2:
                 temp = school.get_course(course_number=int(data[0]), course_name=int(data[1]))
                 response = temp.format_attendance()
-            self.conn.sendall(response)
+            self.conn.sendall(str.encode(response))
 
         elif command == 11:
             data = packet.split(';')
