@@ -8,7 +8,7 @@ class School:
     def __init__(self):
         self.students = []
         self.courses = []
-        self.student_numbers = 0
+        self.student_numbers =
 
     def add_student(self, student: Student):
         if student != None:

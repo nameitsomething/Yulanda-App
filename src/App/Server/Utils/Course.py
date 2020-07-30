@@ -145,18 +145,22 @@ class Course:
         return  out
 
     def format_csv(self):
-        str_time = ""
-        for t in self.times:
-            str_time += f"{t.timestamp()},"
-
-        students = ""
-        for s in self.students:
-            students += f"{s.student_number},"
 
         out = f"{self.name},{self.number},{self.section},{self.description},{self.times.__len__()},{self.students.__len__()}"
-        out += str_time
-        out += students
 
+        str_time = "0,"
+        if self.times.__len__() > 0:
+            str_time = ""
+            for t in self.times:
+                str_time += f"{t.timestamp()};"
+        out += str_time
+
+        students = "0"
+        if self.students.__len__() > 0:
+            students = ""
+            for s in self.students:
+                students += f"{s.student_number};"
+        out += students
         return out
 
     def format_bytes(self):

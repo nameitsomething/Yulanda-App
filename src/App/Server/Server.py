@@ -205,6 +205,7 @@ class User(Thread):
                 reponse = bytes(temp.present)
             self.conn.sendall(response)
 
+
 def login(conn: socket):
     conn.sendall(struct.pack("B", 1))
     data = conn.recv(128).decode().split(",")
@@ -212,11 +213,15 @@ def login(conn: socket):
     if data[0] == "jet123" and data[1] == "12345":
         temp = Jetson(conn)
         temp.start()
+        conn.sendall(str.encode("posak"))
         return temp
     elif data[0] == "user123" and data[1] == "12346":
         temp = User(conn)
         temp.start()
+        conn.sendall(str.encode("posak"))
         return temp
+    else:
+        conn.sendall(str.encode(f"negak"))
 
 
 if __name__ == '__main__':
@@ -226,4 +231,3 @@ if __name__ == '__main__':
     while running:
         conn, addr = server_soc.accept()
         clients.append(login(conn))
-
