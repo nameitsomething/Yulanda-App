@@ -154,7 +154,6 @@ if __name__ == "__main__":
         temp = conn.recv(128).decode()
         print(temp)
 
-
         conn.sendall(str.encode("10,1,M101;1"))
         temp = conn.recv(128).decode()
         print(temp)
