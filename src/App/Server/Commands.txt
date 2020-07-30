@@ -1,1 +1,80 @@
-1 - server request login from user
+####--#### User Commands ####--####
+
+positive ak command -> <command> == "posak"
+negative ak command -> <command> == "negak"
+
+<command>,<specifier>,<data>
+1 - Add student
+    <data> - Name;Age;Grade;Present
+    <specifier> - 0
+
+2 - Remove Student
+    <specifier> ->
+        1 - Remove by Name
+        2 - Remove by Number
+    <data> - Name or Number
+
+3 - Add Course
+    <data> - Name;Number;Section;description
+    <specifier> - 0
+
+4 - Remove Course
+    <specifier> ->
+        1 - Remove by Name & Section
+        2 - Remover by Number & Section
+    <data> - name or number;section
+
+5 - Add Student to course
+    <specifier> ->
+        1 - Add by student name, course name & section
+        2 - Add by student name, course number & section
+        3 - Add by student number, course name & section
+        4 - Add by student number, course number & section
+    <data> - name;name;section
+
+6 - Remove Student from course
+    <specifier> ->
+        1 - Remove by student name, course name & section
+        2 - Remove by student name, course number & section
+        3 - Remove by student number, course name & section
+        4 - Remove by student number, course number & section
+    <data> - name;name;section
+
+7 - Get student info
+    <specifier> ->
+        1 - student name
+        2 - student number
+    <data> name
+
+8 - Get course info
+    <specifier> ->
+        1 - course name & section
+        2 - course number & section
+    <data> - name;section
+
+9 - Get students schedule
+    <specifier> ->
+        1 - student name
+        2 - student number
+    <data> - name
+
+10 - Get course attendance
+    <specifier> ->
+        1 - course name & section
+        2 - course number & section
+    <data> - name;section
+
+11 - Get Student Location
+    <specifier> ->
+        1 - student name
+        2 - student number
+    <data> - name
+
+####--#### Jetson Commands ####--####
+
+<command>,<data>
+
+1 - toggle recognized
+    <data> - label number matching the person seen,
+
+        * for demo purposes, label num == student num

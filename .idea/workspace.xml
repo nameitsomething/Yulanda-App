@@ -24,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/../SimpleChatroom/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleChatroom/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SimpleChatroom/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleChatroom/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Server/Commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Server/Commands.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Server/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Server/Server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Server/Utils/Course.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Server/Utils/Course.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Server/Utils/School.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Server/Utils/School.py" afterDir="false" />
@@ -55,9 +56,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.start">
     <configuration name="Server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Yulanda-App" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,8 +81,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SimpleChatroom" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../SimpleChatroom/src/Client" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../SimpleChatroom/src/Client/start.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.start" />
         <item itemvalue="Python.Server" />
       </list>
     </recent_temporary>
@@ -102,7 +126,9 @@
       <workItem from="1595005761572" duration="2280000" />
       <workItem from="1595013995455" duration="17000" />
       <workItem from="1595352958784" duration="5548000" />
-      <workItem from="1595456959870" duration="83000" />
+      <workItem from="1595456959870" duration="358000" />
+      <workItem from="1595528970616" duration="1179000" />
+      <workItem from="1596046247064" duration="10956000" />
     </task>
     <servers />
   </component>
@@ -142,16 +168,23 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="754" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1594328494968" />
-    <state x="301" y="75" key="SettingsEditor" timestamp="1594316678420">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="1721" y="-213" key="SettingsEditor" timestamp="1596077985717">
+      <screen x="1360" y="-304" width="1920" height="1040" />
     </state>
     <state x="301" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1594316678420" />
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1595353191345">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="1721" y="-213" key="SettingsEditor/1067.776.1600.860/1360.-304.1920.1040/0.0.1360.728@1360.-304.1920.1040" timestamp="1596077985717" />
+    <state x="57" y="234" width="1376" height="815" maximized="true" key="dock-window-1" timestamp="1596083097334">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1595353191345" />
+    <state x="57" y="234" width="1376" height="815" maximized="true" key="dock-window-1/1067.776.1600.860/1360.-304.1920.1040/0.0.1360.728@1360.-304.1920.1040" timestamp="1596083097334" />
+    <state x="1916" y="-86" width="807" height="820" key="search.everywhere.popup" timestamp="1596083111436">
+      <screen x="1360" y="-304" width="1920" height="1040" />
+    </state>
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1596046645096" />
+    <state x="1916" y="-86" width="807" height="820" key="search.everywhere.popup/1067.776.1600.860/1360.-304.1920.1040/0.0.1360.728@1360.-304.1920.1040" timestamp="1596083111436" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Yulanda_App$start.coverage" NAME="start Coverage Results" MODIFIED="1595466977331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../SimpleChatroom/src/Client" />
     <SUITE FILE_PATH="coverage/Yulanda_App$Server.coverage" NAME="Server Coverage Results" MODIFIED="1594317138419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/App/Server" />
   </component>
 </project>

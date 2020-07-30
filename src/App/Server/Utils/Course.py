@@ -68,13 +68,13 @@ class Course:
                     s.check_in()
                     return True
 
-        elif number != None:
+        if number != None:
             for s in self.students:
                 if s.student_number == number:
                     s.check_in()
                     return True
 
-        elif name != None:
+        if name != None:
             for s in self.students:
                 if s.name == name:
                     s.check_in()
@@ -89,13 +89,13 @@ class Course:
                     s.check_out()
                     return True
 
-        elif number != None:
+        if number != None:
             for s in self.students:
                 if s.student_number == number:
                     s.check_out()
                     return True
 
-        elif name != None:
+        if name != None:
             for s in self.students:
                 if s.name == name:
                     s.check_out()
@@ -120,6 +120,29 @@ class Course:
                 temp.append(s)
 
         return temp
+
+    def is_student_part_of(self, student: Student = None, name: str = None, number: int = None):
+        if student != None:
+            for s in self.students:
+                if s.name == student.name:
+                    return True
+        if name != None:
+            for s in self.students:
+                if s.name == name:
+                    return True
+        if number != None:
+            for s in self.students:
+                if s.student_number == number:
+                    return True
+        return False
+
+    def format_attendance(self):
+        out = []
+
+        for s in self.students:
+            out.append(s.name)
+
+        return  out
 
     def format_csv(self):
         str_time = ""

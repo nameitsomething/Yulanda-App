@@ -3,7 +3,6 @@ from .Course import Course
 import csv
 from datetime import datetime
 
-
 class School:
 
     def __init__(self):
@@ -35,7 +34,7 @@ class School:
                     self.students.remove(s) # from the school
                     return True
 
-        elif name != None:
+        if name != None:
             for s in self.students:
                 if s.name == name:
                     for c in self.courses:
@@ -44,7 +43,7 @@ class School:
                     self.students.remove(s)
                     return True
 
-        elif number != None:
+        if number != None:
             for s in self.students:
                 if s.student_number == number:
                     for c in self.courses:
@@ -65,12 +64,12 @@ class School:
                 if s.name == student.name:
                     temp_student = s
 
-        elif student_name != None:
+        if student_name != None:
             for s in self.students:
                 if s.name == student_name:
                     temp_student = s
 
-        elif student_number != None:
+        if student_number != None:
             for s in self.students:
                 if s.student_number == student_number:
                     temp_student = s
@@ -83,21 +82,18 @@ class School:
                 if c.number == course.number and c.section == course.section:
                     c.add_student(temp_student)
                     return True
-            return False
 
-        elif course_number != None and course_section != None:
+        if course_number != None and course_section != None:
             for c in self.courses:
                 if c.number == course_number and c.section == course_section:
                     c.add_student(temp_student)
                     return True
-            return False
 
-        elif course_name != None and course_section != None:
+        if course_name != None and course_section != None:
             for c in self.courses:
                 if c.name == course_name and c.section == course_section:
                     c.add_student(temp_student)
                     return True
-            return False
 
         return False
 
@@ -112,12 +108,12 @@ class School:
                 if s.name == student.name:
                     temp_student = s
 
-        elif student_name != None:
+        if student_name != None:
             for s in self.students:
                 if s.name == student_name:
                     temp_student = s
 
-        elif student_number != None:
+        if student_number != None:
             for s in self.students:
                 if s.student_number == student_number:
                     temp_student = s
@@ -132,14 +128,14 @@ class School:
                     return True
             return False
 
-        elif course_number != None and course_section != None:
+        if course_number != None and course_section != None:
             for c in self.courses:
                 if c.number == course_number and c.section == course_section:
                     c.remove_student(temp_student)
                     return True
             return False
 
-        elif course_name != None and course_section != None:
+        if course_name != None and course_section != None:
             for c in self.courses:
                 if c.name == course_name and c.section == course_section:
                     c.remove_student(temp_student)
@@ -163,14 +159,34 @@ class School:
                 if course.section == c.section and (course.name == c.name or course.number == c.number):
                     self.courses.remove(c)
                     return True
-            return False
-        elif course_section != None and (course_name != None or course_number != None):
+
+        if course_section != None and (course_name != None or course_number != None):
             for c in self.courses:
                 if c.section == course_section and (c.name == course_name or c.number == course_number):
                     self.courses.remove(c)
                     return True
-            return False
+
         return False
+
+    def get_course(self, course_name: str = None, course_number: int = None, course_section: int = None):
+        if course_name != None:
+            for c in self.courses:
+                if c.name == course_name and c.section == course_section:
+                    return c
+        if course_number != None:
+            for c in self.courses:
+                if c.number == course_number and c.section == course_section:
+                    return c
+
+    def get_student(self, student_name: str = None, student_number: int = None):
+        if student_name != None:
+            for s in self.students:
+                if s.name == student_name:
+                    return s
+        if student_number != None:
+            for s in self.students:
+                if s.student_number == student_number:
+                    return s
 
     def write(self):
         with open('students.csv', "w") as file:
@@ -180,7 +196,6 @@ class School:
         with open('classes.csv', "w") as file:
             for c in self.courses:
                 file.write(c.format_csv())
-
 
     def read(self):
         with open('students.csv', "r", newline='') as file:
