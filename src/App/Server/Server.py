@@ -203,7 +203,7 @@ class User(Thread):
             self.conn.sendall(str.encode(response))
 
         elif command == 11:
-            data = packet.split(';')
+            data = packet[2].split(';')
             if specifier == 1:
                 temp = school.get_student(student_name=str(data[0]))
                 response = bytes(temp.present)
