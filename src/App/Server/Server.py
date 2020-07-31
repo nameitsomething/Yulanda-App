@@ -210,7 +210,7 @@ class User(Thread):
             elif specifier == 2:
                 temp = school.get_student(student_number=int(data[0]))
                 reponse = bytes(temp.present)
-            self.conn.sendall(response)
+            self.conn.sendall(str.encode(response))
 
 
 def login(conn: socket):
