@@ -158,7 +158,7 @@ if __name__ == "__main__":
         temp = conn.recv(128).decode()
         print(temp)
 
-        conn.sendall(str.encode("11,1,Yulanda"))
+        conn.sendall(str.encode("11,1,Gabe"))
         temp = conn.recv(128).decode()
         print(temp)
         pass

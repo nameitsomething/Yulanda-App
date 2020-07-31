@@ -25,9 +25,16 @@ class Window:
         self.label_int = 90
         self.label_y=490
 
+        self.name = "Name:"
+        self.age = "Age:"
+        self.grade = "Grade:"
+        self.present = "Present:"
+
         tk.title("Main Window")
         tk.geometry("1200x600")
         tk.resizable(0,0)
+
+        self.get_student_info()
 
 
         self.info_frame = Frame(tk)
@@ -37,10 +44,10 @@ class Window:
         self.bottom_frame3 = Frame(tk)
         
     
-        self.name_label = Label(self.info_frame, text="Name:",anchor=NW,justify= LEFT,font=("Helvetica",15))
-        self.age_label = Label(self.info_frame,text="Age:",anchor=NW,justify = LEFT,font=("Helvetica",15))
-        self.grade_label = Label(self.info_frame,text="Grade:",anchor=NW,justify=LEFT,font=("Helvetica",15))
-        self.present_label = Label(self.info_frame,text="Present:",anchor=NW,justify=LEFT,font=("Helvetica",15))
+        self.name_label = Label(self.info_frame, text=self.name,anchor=NW,justify= LEFT,font=("Helvetica",15))
+        self.age_label = Label(self.info_frame,text=self.age,anchor=NW,justify = LEFT,font=("Helvetica",15))
+        self.grade_label = Label(self.info_frame,text=self.grade,anchor=NW,justify=LEFT,font=("Helvetica",15))
+        self.present_label = Label(self.info_frame,text=self.present,anchor=NW,justify=LEFT,font=("Helvetica",15))
 
         
         self.student1_label = Label(self.bottom_frame, background ="red",text="Sdiperman",justify=LEFT,font=("Helvatica",16),width=10,height=2)
@@ -57,6 +64,7 @@ class Window:
         self.picture_frame = Canvas(tk, width = 300, height = 300)
 
         
+
         #self.img = Image.open('sdiperman.jpeg')
         self.student_1 = Image.open('sdipermanCopy.jpeg')
         self.student_2 = Image.open('gru.jpeg')
@@ -104,10 +112,27 @@ class Window:
         self.bottom_canvas1.place(x=self.bottom_int,y=self.bottom_y)
         self.bottom_canvas2.place(x=self.bottom_int*6,y=self.bottom_y)
         self.bottom_canvas3.place(x=self.bottom_int*11,y=self.bottom_y)
+
+        
      
 
     def get_student_info(self):
-        pass
+        self.conn.sendall(str.encode("1,0,Human;420;100;False"))
+        temp = self.conn.recv(128)
+
+        print(temp)
+
+        self.conn.sendall(str.encode("7,1,Human"))
+        temp = self.conn.recv(256).decode().split(',')
+        temp = self.conn.recv(256).decode().split(',')
+
+        print(temp)
+
+        self.name += " " + temp[0]
+        self.age += " " + temp[1]
+        self.grade += " " + temp[2]    
+        self.present += " " + temp[3]
+
 
     def update_student_present(self):
         pass
