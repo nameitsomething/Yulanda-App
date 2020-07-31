@@ -29,6 +29,9 @@ class Window:
         self.age = "Age:"
         self.grade = "Grade:"
         self.present = "Present:"
+        self.number = "Student Number:"
+
+        self.courses = ""
 
         tk.title("Main Window")
         tk.geometry("1200x600")
@@ -48,6 +51,7 @@ class Window:
         self.age_label = Label(self.info_frame,text=self.age,anchor=NW,justify = LEFT,font=("Helvetica",15))
         self.grade_label = Label(self.info_frame,text=self.grade,anchor=NW,justify=LEFT,font=("Helvetica",15))
         self.present_label = Label(self.info_frame,text=self.present,anchor=NW,justify=LEFT,font=("Helvetica",15))
+        self.number_label = Label(self.info_frame,text= self.number,anchor=NW,justify=LEFT,font=("Helvetica",15))
 
         
         self.student1_label = Label(self.bottom_frame, background ="red",text="Sdiperman",justify=LEFT,font=("Helvatica",16),width=10,height=2)
@@ -93,6 +97,7 @@ class Window:
         self.age_label.pack(side = TOP,fill= X)
         self.grade_label.pack(side=TOP,fill=X)
         self.present_label.pack(side=TOP,fill=X)
+        self.number_label.pack(side=TOP,fill=X)
         self.student1_label.pack()
         self.student2_label.pack()
         self.student3_label.pack()
@@ -122,6 +127,16 @@ class Window:
 
         print(temp)
 
+        self.conn.sendall(str.encode("3,0,Death;666;1;Teaching the next generation of Grim Reapers"))
+        temp = self.conn.recv(128)
+
+        print(temp)
+
+        self.conn.sendall(str.encode("5,1,Human;Death;1"))
+        temp = self.conn.recv(128)
+
+        print(temp)
+
         self.conn.sendall(str.encode("7,1,Human"))
         temp = self.conn.recv(256).decode().split(',')
         temp = self.conn.recv(256).decode().split(',')
@@ -132,6 +147,10 @@ class Window:
         self.age += " " + temp[1]
         self.grade += " " + temp[2]    
         self.present += " " + temp[3]
+        self.number += " " + temp[4]
+
+        self.conn.sendall(str.encode("9,1,Human"))
+        temp = self.conn.recv(256).decode().split(',')
 
 
     def update_student_present(self):

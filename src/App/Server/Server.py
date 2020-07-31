@@ -178,12 +178,12 @@ class User(Thread):
             if specifier == 1:
                 for c in school.courses:
                     if c.is_student_part_of(name=str(data[0])):
-                        response += f"{c.name},{c.number},{c.section}"
+                        response += f"{c.name},{c.number},{c.section};"
 
             elif specifier == 2:
                 for c in school.courses:
                     if c.is_student_part_of(number=int(data[0])):
-                        response += f"{c.name},{c.number},{c.section}"
+                        response += f"{c.name},{c.number},{c.section};"
             
             self.conn.sendall(str.encode(response))
 
