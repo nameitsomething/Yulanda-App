@@ -60,6 +60,7 @@ class Window:
 
 
         self.course_label = Label(self.course_frame,text="Courses", font=("Helvetica",20,'bold','underline'))
+        self.course_list = Label(self.course_frame,text=self.courses,font=("Helvetica",15))
 
 
         self.bottom_canvas1 = Canvas(tk,width= 180, height = 170)
@@ -102,6 +103,7 @@ class Window:
         self.student2_label.pack()
         self.student3_label.pack()
         self.course_label.pack()
+        self.course_list.pack()
         self.picture_frame.pack()
         self.bottom_canvas1.pack()
         self.bottom_canvas2.pack()
@@ -150,7 +152,10 @@ class Window:
         self.number += " " + temp[4]
 
         self.conn.sendall(str.encode("9,1,Human"))
-        temp = self.conn.recv(256).decode().split(',')
+        temp = self.conn.recv(256).decode().split(';')
+        print(temp)
+        for t in temp:
+            self.courses += t +"\n"
 
 
     def update_student_present(self):
