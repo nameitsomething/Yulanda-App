@@ -206,10 +206,10 @@ class User(Thread):
             data = packet[2].split(';')
             if specifier == 1:
                 temp = school.get_student(student_name=str(data[0]))
-                response = bytes(temp.present)
+                response = temp.present
             elif specifier == 2:
                 temp = school.get_student(student_number=int(data[0]))
-                reponse = bytes(temp.present)
+                reponse = temp.present
             self.conn.sendall(str.encode(response))
 
 
