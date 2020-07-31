@@ -189,6 +189,7 @@ class User(Thread):
 
         elif command == 10:
             data = packet[2].split(';')
+            response = ""
             if specifier == 1:
                 temp = school.get_course(course_name=str(data[0]), course_section=int(data[1]))
                 temp = temp.format_attendance()
